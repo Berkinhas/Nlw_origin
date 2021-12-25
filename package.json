@@ -1,0 +1,15 @@
+{
+  "name": "nlw_origin",
+  "version": "1.0.0",
+  "description": "Projeto da missao origin da rocketseat",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "HTML",
+    "CSS"
+  ],
+  "author": "",
+  "license": "ISC"
+}
