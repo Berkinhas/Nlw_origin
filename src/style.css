@@ -6,6 +6,14 @@
   box-sizing: border-box;
 }
 
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
 :root {
   --header-height: 4.5rem;
 
@@ -21,13 +29,17 @@
   --body-color: hsl(0 0% 98%);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font: 400 1rem 'DM Sans', sans-serif;
   background: var(--body-color);
   color: var(--text-color);
 }
 
-h1 {
+.title {
   font: 700 1.875rem 'Poppins', sans-serif;
   color: var(--title-color);
 }
@@ -51,6 +63,18 @@ img {
   padding: 5rem 0;
 }
 
+.section .title {
+  margin-bottom: 1rem;
+}
+
+.section header {
+  margin-bottom: 4rem;
+}
+
+.section header strong {
+  color: var(--base-color);
+}
+
 #header {
   border-bottom: 1px solid #e4e4e4;
   margin-bottom: 2rem;
@@ -61,14 +85,16 @@ img {
   position: fixed;
   z-index: 100;
   background-color: var(--body-color);
+  transition: 0.3s;
 }
 
-nav {
-  width: 100%;
-  height: var(--header-height);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+#header.scroll {
+  box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.6);
+  transition: 0.3s;
+}
+
+main {
+  margin-top: calc(var(--header-height) + 2rem);
 }
 
 .logo {
@@ -80,8 +106,97 @@ nav {
   color: var(--base-color);
 }
 
-main {
-  margin-top: var(--header-height);
+nav {
+  width: 100%;
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+nav ul li a {
+  transition: color 0.3s;
+  position: relative;
+}
+
+nav ul li a:hover {
+  color: var(--base-color);
+}
+
+nav ul li a::after {
+  content: '';
+  width: 0%;
+  height: 2px;
+  background: var(--base-color);
+  position: absolute;
+  left: 0;
+  bottom: -1.5rem;
+  transition: width 0.2s;
+}
+
+nav ul li {
+  text-align: center;
+}
+
+nav ul li a:hover::after {
+  width: 100%;
+}
+
+nav .menu {
+  opacity: 0;
+  visibility: hidden;
+  top: -20rem;
+  transition: 0.3s;
+}
+
+nav .menu ul {
+  display: none;
+}
+
+nav.show .menu {
+  opacity: 1;
+  visibility: visible;
+  background: var(--body-color);
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  display: grid;
+  place-content: center;
+}
+
+nav.show ul.grid {
+  gap: 4rem;
+}
+
+nav.show .menu ul {
+  display: grid;
+}
+
+nav .icon-close {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  right: 1.5rem;
+  top: -1.5rem;
+  transition: 0.2s;
+}
+
+nav.show .icon-close {
+  opacity: 1;
+  visibility: visible;
+  top: 1.5rem;
+}
+
+nav .icon-menu {
+  right: 1.5rem;
+}
+
+nav .toggle {
+  font-size: 1.5rem;
+  color: var(--base-color);
+  cursor: pointer;
 }
 
 #home .image {
@@ -100,7 +215,7 @@ main {
 }
 
 #home .image img,
-home .image::before {
+#home .image::before {
   border-radius: 0.25rem;
 }
 
@@ -137,7 +252,6 @@ home .image::before {
   height: 3.5rem;
   display: inline-flex;
   align-items: center;
-  text-decoration: none;
   border-radius: 0.25rem;
   padding: 0 2rem;
   transition: background 0.3s;
@@ -151,7 +265,77 @@ home .image::before {
   height: 1px;
   background: linear-gradient(
     270grad,
-    hsla(var(--hue), 36%, 57%, 1) 0%,
-    hsla(var(--hue), 65%, 88%, 0.34) 100%
+    hsla(var(--hue), 36%, 57%, 1),
+    hsla(var(--hue), 65%, 88%, 0.34)
   );
+}
+
+.divider-2 {
+  height: 1px;
+  background: linear-gradient(
+    270grad,
+    hsla(var(--hue), 65%, 88%, 0.34),
+    hsla(var(--hue), 36%, 57%, 1)
+  );
+}
+
+#about {
+  background: white;
+}
+
+#about .image {
+  position: relative;
+}
+
+#about .image::before {
+  content: '';
+  width: 100%;
+  height: 100%;
+  background: var(--base-color-second);
+  position: absolute;
+  top: -8.3%;
+  left: -33%;
+  z-index: 0;
+}
+
+#about .image img,
+#about .image::before {
+  border-radius: 0.25rem;
+}
+
+#about .container {
+  margin: 0;
+}
+#about .text {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+}
+
+#about .image img {
+  position: relative;
+  right: 2.93rem;
+}
+
+.cards.grid {
+  gap: 1.5rem;
+}
+
+.card {
+  padding: 3.625rem 2rem;
+  box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.08);
+  border-bottom: 0.25rem solid var(--base-color);
+  border-radius: 0.25rem 0.25rem 0 0;
+  text-align: center;
+}
+
+.card i {
+  display: block;
+  margin-bottom: 1.5rem;
+  font-size: 5rem;
+  color: var(--base-color);
+}
+
+.card .title {
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
 }
