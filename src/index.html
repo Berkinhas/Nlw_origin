@@ -3,6 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link
+  rel="stylesheet"
+  href="https://unpkg.com/swiper@7/swiper-bundle.min.css"
+/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="assets/fonts/style.css" />
@@ -15,10 +19,10 @@
         <div class="menu">
           <ul class="grid">
             <li><a class="title" href="#home">Inicio</a></li>
-            <li><a class="title" href="#services">Serviços</a></li>
             <li><a class="title" href="#about">Sobre</a></li>
+            <li><a class="title" href="#services">Serviços</a></li>
             <li><a class="title" href="#testmonials">Depoimentos</a></li>
-            <li><a class="title" href="#contact">Contato</a></li>
+            <li><a class="title" href="#contacts">Contato</a></li>
           </ul>
         </div>
         <div class="toggle icon-menu"></div>
@@ -123,7 +127,82 @@
           </div>
         </div>
       </section>
+      <div class="divider-1"></div>
+
+      <section class="section" id="testmonials">
+        <div class="container">
+          <header>
+            <h2 class="title">Depoimentos de quem já passou por aqui</h2>
+          </header>
+          <div class="testmonials swiper">
+            <div class="swiper-wrapper">
+              <div class="testmonial swiper-slide">
+                <blockquote>
+                  <p>
+                    <span>&ldquo;</span>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquam, non. Esse dicta id enim qui facilis reiciendis labore commodi, libero illo eligendi laborum doloribus nulla deserunt nihil cum quo reprehenderit.
+                  </p>
+                  <cite>
+                    <img src="https://randomuser.me/api/portraits/women/11.jpg" alt="foto da Wanessa Souza">
+                    Wanessa Souza
+                  </cite>
+                </blockquote>
+              </div>
+  
+  
+              <div class="testmonial swiper-slide">
+                <blockquote>
+                  <p>
+                    <span>&ldquo;</span>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident consequatur eum laborum repellat corporis vel nobis numquam exercitationem, placeat cumque eos sapiente, harum reprehenderit, molestiae explicabo ut dignissimos deserunt fugiat.
+                  </p>
+                  <cite>
+                    <img src="https://randomuser.me/api/portraits/women/62.jpg" alt="foto da valeska Fabris">
+                    Valeska Fabris
+                  </cite>
+                </blockquote>
+              </div>
+  
+  
+              <div class="testmonial swiper-slide">
+                <blockquote>
+                  <p>
+                    <span>&ldquo;</span>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta quasi enim aspernatur blanditiis quis ullam aliquam odio voluptate eius alias fugiat vero recusandae veniam, ut commodi molestias porro cupiditate dignissimos.
+                  </p>
+                  <cite>
+                    <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Foto da luna Falcão">
+                    Luna Falcão
+                  </cite>
+                </blockquote>
+              </div>
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+        </div>
+      </section>
+      <div class="divider-2"></div>
+
+      <section class="section" id="contacts">
+        <div class="container grid">
+          <div class="text">
+            <h2 class="title">Entre em contato
+              com a gente!</h2>
+              <p>Entre em contato com a Beautysalon, queremos tirar suas dúvidas, ouvir suas críticas e sugestões.</p>
+              <a href="#" class="button"><i class="icon-whatsapp"></i>Entre em contato</a>
+          </div>
+          <div class="links">
+            <ul class="grid">
+              <li><i class="icon-phone"></i>(**) *****-****</li>
+              <li><i class="icon-map-pin"></i>R. Amauri Souza, 346</li>
+              <li><i class="icon-mail"></i>contato@beautysalon.com</li>
+            </ul>
+          </div>
+        </div>
+      </section>
     </main>
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
     <script src="index.js"></script>
   </body>
 </html>

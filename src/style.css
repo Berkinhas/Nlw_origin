@@ -322,7 +322,7 @@ nav .toggle {
 
 .card {
   padding: 3.625rem 2rem;
-  box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.08);
+  box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.03);
   border-bottom: 0.25rem solid var(--base-color);
   border-radius: 0.25rem 0.25rem 0 0;
   text-align: center;
@@ -338,4 +338,97 @@ nav .toggle {
 .card .title {
   font-size: 1.5rem;
   margin-bottom: 0.75rem;
+}
+
+#testmonials {
+  background: white;
+}
+
+
+#testmonials .container {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+#testmonials header {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+  margin-bottom: 0;
+}
+
+#testmonials blockquote p {
+  position: relative;
+  text-indent: 1.875rem;
+  margin-bottom: 1.5rem;
+  color: var(--title-color);
+}
+
+#testmonials blockquote p span {
+  position: absolute;
+  top: -0.375rem;
+  left: -1.875rem;
+  font: 700 3rem serif;
+  color: var(--base-color);
+}
+
+#testmonials blockquote {
+  padding: 2rem;
+  box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.08);
+  border-radius: 00.25rem;
+}
+
+#testmonials cite {
+  display: flex;
+  align-items: center;
+  font-style: normal;
+  
+}
+
+#testmonials cite img {
+  height: 2rem;
+  width: 2rem;
+  margin-right: 0.5rem;
+  object-fit: cover;
+  clip-path: circle();
+}
+
+.swiper-slide {
+  height: auto;
+  padding: 4rem 1rem;
+}
+
+.swiper-pagination-bullet {
+  width: 0.75rem;
+  height: 0.75rem;
+}
+
+.swiper-pagination-bullet-active {
+  background: var(--base-color);
+}
+
+#contacts .grid {
+  gap: 4rem;
+}
+
+#contacts .text p {
+  margin-bottom: 2rem;
+}
+
+#contacts .text i,
+#contacts ul li i {
+  font-size: 1.4rem;
+  margin-right: 0.625rem;
+}
+
+#contacts ul.grid {
+  gap: 2rem;
+}
+
+#contacts ul li {
+  display: flex;
+  align-items: center;
+}
+
+#contacts ul li i {
+  color: var(--base-color);
 }
