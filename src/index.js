@@ -1,8 +1,6 @@
 const nav = document.querySelector('#header nav')
 const toggle = document.querySelectorAll('nav .toggle')
 const links = document.querySelectorAll('nav ul li a')
-const header = document.querySelector('#header')
-
 
 for (const el of toggle) {
   el.addEventListener('click', () => {
@@ -16,15 +14,18 @@ for (const link of links) {
   })
 }
 
-const navHeight = header.offsetHeight
 
-window.addEventListener('scroll', () => {
+function headerScroll() {
+  const header = document.querySelector('#header')
+  const navHeight = header.offsetHeight
+
   if (window.scrollY >= navHeight) {
     header.classList.add('scroll')
   } else {
     header.classList.remove('scroll')
   }
-})
+  
+}
 
 const swiper = new Swiper('.swiper',{
   slidesPerView: 1,
@@ -47,7 +48,23 @@ scrollReveal.reveal(`
 #about .image, #about .text,
 #services header, #services card,
 #testmonials header, #testmonials testmonials,
-#contacts .text, #contacts .links
+#contacts .text, #contacts .links,
+footer .brand, footer .social
 
 `, {interval: 100})
 
+
+function backButtonScroll() {
+  const backButton = document.querySelector('.back')
+  if (window.scrollY >= 560) {
+    backButton.classList.add('show')
+  }else {
+    backButton.classList.remove('show')
+  }
+  
+}
+
+window.addEventListener('scroll', () => {
+  headerScroll()
+  backButtonScroll()
+})
