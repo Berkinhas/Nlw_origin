@@ -15,9 +15,9 @@ for (const link of links) {
 }
 
 
+const header = document.querySelector('#header')
+const navHeight = header.offsetHeight
 function headerScroll() {
-  const header = document.querySelector('#header')
-  const navHeight = header.offsetHeight
 
   if (window.scrollY >= navHeight) {
     header.classList.add('scroll')
@@ -34,7 +34,13 @@ const swiper = new Swiper('.swiper',{
     type: 'bullets',
   },
   mousewheel: true,
-  keyboard: true
+  keyboard: true,
+  breakpoints: {
+    767: {
+      slidesPerView: 2,
+      setWrapperSize: true
+    }
+  }
 })
 
 const scrollReveal = ScrollReveal({
@@ -54,8 +60,8 @@ footer .brand, footer .social
 `, {interval: 100})
 
 
+const backButton = document.querySelector('.back')
 function backButtonScroll() {
-  const backButton = document.querySelector('.back')
   if (window.scrollY >= 560) {
     backButton.classList.add('show')
   }else {
@@ -64,7 +70,31 @@ function backButtonScroll() {
   
 }
 
+const sections = document.querySelectorAll('main section[id]')
+function activateMenu() {
+  const checkpoint = window.pageYOffset + (window.innerHeight / 8) * 4
+
+  for (const section of sections) {
+    const sectionTop = section.offsetTop
+    const sectionHeight = section.offsetHeight
+    const sectionId = section.getAttribute('id')
+
+    const checkpointStart = checkpoint >= sectionTop 
+    const checkpointEnd = checkpoint <= sectionTop + sectionHeight
+
+    if (checkpointStart && checkpointEnd) {
+      document.querySelector('nav ul li a[href*=' + sectionId + ']')
+      .classList.add('active')
+    }else {
+      document.querySelector('nav ul li a[href*=' + sectionId + ']')
+      .classList.remove('active')
+    }
+  }
+}
+
+
 window.addEventListener('scroll', () => {
   headerScroll()
   backButtonScroll()
+  activateMenu()
 })

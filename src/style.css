@@ -26,6 +26,9 @@ a {
   --text-color: hsl(0 0% 46%);
   --text-color-light: hsl(0 0% 98%);
   --body-color: hsl(0 0% 98%);
+
+  --title-font-size: 1.825rem;
+  --subtitle-font-size: 1rem;
 }
 
 html {
@@ -41,6 +44,7 @@ body {
 .title {
   font: 700 1.875rem 'Poppins', sans-serif;
   color: var(--title-color);
+  font-size: var(--title-font-size);
 }
 
 img {
@@ -59,7 +63,7 @@ img {
 }
 
 .section {
-  padding: 5rem 0;
+  padding: calc(5rem + var(--header-height)) 0;
 }
 
 .section .title {
@@ -72,6 +76,10 @@ img {
 
 .section header strong {
   color: var(--base-color);
+}
+
+.section subtitle {
+  font-size: var(--subtitle-font-size);
 }
 
 #header {
@@ -90,10 +98,6 @@ img {
 #header.scroll {
   box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.6);
   transition: 0.3s;
-}
-
-main {
-  margin-top: calc(var(--header-height) + 2rem);
 }
 
 .logo {
@@ -122,7 +126,8 @@ nav ul li a {
   position: relative;
 }
 
-nav ul li a:hover {
+nav ul li a:hover,
+nav ul li a.active {
   color: var(--base-color);
 }
 
@@ -141,7 +146,8 @@ nav ul li {
   text-align: center;
 }
 
-nav ul li a:hover::after {
+nav ul li a:hover::after,
+nav ul li a.active::after {
   width: 100%;
 }
 
@@ -445,6 +451,10 @@ footer {
   background: var(--base-color);
 }
 
+footer.section {
+  padding: 4rem 0;
+}
+
 footer .brand .logo {
   display: inline-block;
   margin-bottom: 1.5rem;
@@ -489,4 +499,122 @@ footer .social a:hover {
   visibility: visible;
   opacity: 1;
   transform: translateY(0);
+}
+
+@media (min-width: 1200px) {
+  main {
+    margin-top:var(--header-height);
+  }
+
+  .container {
+    max-width: 1120px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .section {
+    padding: 10rem 0;
+  }
+
+  .button {
+    height: 3.125rem;
+  }
+
+  nav .menu {
+    opacity: 1;
+    visibility: visible;
+    top: 0;
+  }
+
+  nav .menu ul {
+    display: flex;
+    gap: 2rem;
+  }
+
+  nav .menu ul li a.title {
+    font: 400 1rem 'DM Sans', sans-serif;
+  }
+
+  nav .menu ul li a.title.active {
+    font-weight: bold;
+  }
+
+  nav .icon-menu {
+    display: none;
+  }
+
+  #home .image {
+    order: 1;
+  }
+
+  #home .text {
+    order: 0;
+    text-align: left;
+  }
+
+  #home .container {
+    grid-auto-flow: column;
+    justify-content: space-between;
+    margin: 0 auto;
+  }
+
+  #about .container {
+    grid-auto-flow: column;
+    margin: 0 auto;
+  }
+
+  .container header,
+  #testmonials header {
+    max-width: 32rem;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+
+  #testmonials .container {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #services .cards {
+    grid-auto-flow: column;
+    margin: 0 auto;
+  }
+
+  #services .cards .card {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+
+  #contacts .container {
+    grid-auto-flow: column;
+    align-items: center;
+  }
+
+  #contacts .text {
+    max-width: 25rem;
+  }
+
+  footer.section {
+    padding: 3.75rem 0;
+  }
+
+  footer .container {
+    grid-auto-flow: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  footer .logo {
+    font-size: 2.25rem;
+  }
+
+
+}
+
+@media (min-width: 992px) {
+  :root {
+    --title-font-size: 2.25rem;
+    --subtitle-font-size: 1.125rem;
+  }
 }
